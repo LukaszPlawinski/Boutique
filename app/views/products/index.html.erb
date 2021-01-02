@@ -21,4 +21,6 @@
   <% end %>
 </div>
 <br>
-<%= link_to 'New Product', new_product_path, :class => "button", :role => "button" %>
+<% if session[:login] == 1 %>
+<%= link_to 'New Item', new_product_path, :class =>"button", :role=>"button" %>
+<% end %>
