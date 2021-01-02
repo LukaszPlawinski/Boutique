@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Boutique</title>
+    <title><%= yield(:title) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,6 +13,22 @@
   <body>
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand" href="#">Boutique</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><%= link_to "Home", "/" %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><%= link_to "Thank you", thankyou_path %></a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <%= yield %>
   </body>
