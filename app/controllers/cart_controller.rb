@@ -34,6 +34,7 @@ class CartController < ApplicationController
     session[:cart] = nil
     redirect_to :action => :index
   end
+  
   def index
     # passes a cart to display
     if session[:cart] then
@@ -41,5 +42,11 @@ class CartController < ApplicationController
     else
       @cart = {}
     end
+  end
+  def remove
+    id = params[:id]
+    cart = session[:cart]
+    cart.delete id
+    redirect_to :action => :index
   end
 end

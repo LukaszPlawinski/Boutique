@@ -16,6 +16,7 @@
     <%= link_to 'Show', product, :class => "button button_show", :role => "button" %>
     <%= link_to 'Edit', edit_product_path(product), :class => "button button_edit", :role => "button" %>
     <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button button_destroy", :role => "button" %>
+    <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
     </p>
   </div>
   <% end %>

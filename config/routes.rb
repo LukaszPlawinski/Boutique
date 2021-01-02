@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   get '/login' => 'user#login'
   get '/logout' => 'user#logout'
   get '/cart', to: 'cart#index'
+  get '/cart/:id', to: 'cart#add'
+  get '/remove/:id' => 'cart#remove'
+  get '/clear' => 'cart#clear'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
