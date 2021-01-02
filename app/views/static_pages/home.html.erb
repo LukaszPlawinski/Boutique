@@ -1,3 +1,10 @@
 <% provide(:title, "Home") %>
 <h1>Home</h1>
+<h1>Categories</h1>
+<br>
+<% @categories.each do |category| %>
+<div class="itemhols">
+<p><%= category.description %></p>
+</div>
+<% end %>
 
