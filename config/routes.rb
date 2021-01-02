@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'cart/index'
   resources :products
   get '/' => 'static_pages#home'
