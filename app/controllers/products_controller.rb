@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   def search
     st = "%#{params[:q]}%"
     @products = Product.where("title like ?", st)
+    @search_term = params[:q]
   end
   # GET /products
   # GET /products.json
