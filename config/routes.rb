@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   get 'orderitems/show'
   get 'orderitems/new'
   get 'orderitems/edit'
+  
   resources :orders do
     resources:orderitems
   end
+  
   devise_for :users do 
     resources :orders 
   end
+  
   get '/checkout' => 'cart#createOrder'
   get 'cart/index'
   resources :products
@@ -21,5 +24,6 @@ Rails.application.routes.draw do
   get '/cart/:id', to: 'cart#add'
   get '/remove/:id' => 'cart#remove'
   get '/clear' => 'cart#clear'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'category/:title', to: 'static_pages#category'
+
 end
