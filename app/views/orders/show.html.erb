@@ -1,5 +1,5 @@
 
-<% if @order.user.email == @user.email %>
+<% if @order.user.email == @user.email || current_user.admin? %>
 <div id="itemsContainer">
 <p id="notice"><%= notice %></p>
 <h1>Order Details</h1>
