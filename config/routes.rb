@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'cart/index'
   resources :products
   get '/' => 'static_pages#home'
+  get '/thankyou/:id' => 'static_pages#thankyou'
   get '/thankyou' => 'static_pages#thankyou'
   get '/login' => 'user#login'
   get '/logout' => 'user#logout'
