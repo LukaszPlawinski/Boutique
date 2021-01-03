@@ -9,4 +9,5 @@ class StaticPagesController < ApplicationController
     category = params[:title]
     @Products = Product.where("category like ? ", category)
   end
+  
 end

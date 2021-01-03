@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div id="itemsContainer">
-<h1>Products in <%= params[:title] %> category</h1>
+<h2>Products in <%= params[:title] %> category</h2>
 <% @Products.each do |product| %>
 <div class="itemhols">
 <h1><%= product.title %></h1>
@@ -22,9 +22,10 @@
 <% end %>
 </p>
 </div>
-<% if @Products.length == 0 %>
-<br />
-<h2>There are currently no products in this category</h2>
+
 <% end %>
-<% end %>
+    <% if @Products.length == 0 %>
+        <br />
+        <h3>There are currently no products in this category</h3>
+    <% end %>
 <br>

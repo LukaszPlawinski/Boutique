@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   get '/remove/:id' => 'cart#remove'
   get '/clear' => 'cart#clear'
   get 'category/:title', to: 'static_pages#category'
+  post '/search' => 'products#search'
 
 end
