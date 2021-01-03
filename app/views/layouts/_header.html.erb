@@ -21,17 +21,27 @@
           <li class="nav-item mx-1">
             <%= link_to "Cart", "/cart", :class => "nav-link" %>
           </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= current_user.email %>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to 'Edit Profile', edit_user_registration_path, :class => "dropdown-item" %>
-                <%= link_to "Orders", orders_path, :class => "dropdown-item" %>
-                <div class="dropdown-divider"></div>
-                <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class => "dropdown-item" %>
-              </div>
-            </li>
+          
+          <!--Dropdown-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.email %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Edit Profile', edit_user_registration_path, :class => "dropdown-item" %>
+              <%= link_to "Orders", orders_path, :class => "dropdown-item" %>
+              
+              <% if current_user.admin? %>
+                <%= link_to 'New Item', new_product_path, :class =>"dropdown-item"%>
+                <%= link_to 'New Category', new_category_path, :class =>"dropdown-item" %>
+                <%= link_to 'New Order', new_order_path, :class =>"dropdown-item" %>
+              <% end %>
+              
+              <div class="dropdown-divider"></div>
+              <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class => "dropdown-item" %>
+            </div>
+          </li>
+          
           <% else %>
             <li class="nav-item mx-1">
               <%= link_to 'Register', new_user_registration_path, :class => "nav-link" %>
