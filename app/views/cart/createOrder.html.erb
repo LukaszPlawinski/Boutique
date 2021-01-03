@@ -8,6 +8,12 @@
     <% @total = 0 %>
     <% @orderitems.each do |id,quantity| %>
         <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        <tr>
         <% product = Orderitem.find_by_id(id) %>
         <td><%= product.title %></td>
         <td><%= product.quantity %></td>
@@ -19,7 +25,10 @@
         </tr>
     <% end %>
     <tr>
-    <td>Order Total: &euro; <%= @total %></td>
+        <td class="border-0"></td>
+        <td class="border-0"></td>
+        <td class="border-0"></td>
+        <td>Order Total: &euro; <%= @total %></td>
     </tr>
 </table>
 
@@ -38,11 +47,12 @@
   <input type="hidden" name="currency_code" value="EUR">
 
   <!-- Display the payment button. -->
-  <input type="image" name="submit" border="0"
+  <br>
+  <input class="float-right" type="image" name="submit" border="0"
   src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
   alt="Buy Now">
   <img alt="" border="0" width="1" height="1"
   src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
-  <input type="hidden" name="return" value="https://7ecebcebdb514ecb9c16cd52db06cec8.vfs.cloud9.us-east-1.amazonaws.com/thankyou/<%= @order.id %>" >
+  <input  type="hidden" name="return" value="https://7ecebcebdb514ecb9c16cd52db06cec8.vfs.cloud9.us-east-1.amazonaws.com/thankyou/<%= @order.id %>" >
 
 </form>
