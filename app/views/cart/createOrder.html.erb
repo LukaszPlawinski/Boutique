@@ -6,13 +6,14 @@
 
 <table id="customers">
     <% @total = 0 %>
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
     <% @orderitems.each do |id,quantity| %>
-        <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-        </tr>
+
         <tr>
         <% product = Orderitem.find_by_id(id) %>
         <td><%= product.title %></td>

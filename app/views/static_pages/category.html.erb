@@ -3,22 +3,24 @@
 <h2>Products in <%= params[:title] %> category</h2>
 <% @Products.each do |product| %>
 <div class="itemhols">
-<h1><%= product.title %></h1>
+
 <%= link_to (image_tag product.image_url, :class=>"itemholsIm"), product%>
-<p><%= product.description %>
-</p>
-<p><%= product.price %>
+<h1><%= product.title %></h1>
+<p>Price: <%= product.price %>
 <br>
-<%= product.category %>
+Category: <%= product.category %>
 <br>
-<%= product.size %>
+Size: <%= product.size %>
 </p>
 <p>
-<a href="/cart/<%= product.id %>" class="button">Add to Cart</a>
+
 <%= link_to 'Show', product, :class =>"button", :role=>"button" %>
-<% if session[:login] == 1 %>
-<%= link_to 'Edit', edit_product_path(product), :class =>"button", :role=>"button" %>
-<%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"button", :role=>"button" %>
+<% if user_signed_in? %>
+    <a href="/cart/<%= product.id %>" class="button">Add to Cart</a>
+    <% if current_user.admin? %>
+        <%= link_to 'Edit', edit_product_path(product), :class =>"button", :role=>"button" %>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"button", :role=>"button" %>
+    <% end %>
 <% end %>
 </p>
 </div>
