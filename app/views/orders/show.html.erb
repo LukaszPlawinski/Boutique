@@ -3,33 +3,38 @@
 <div id="itemsContainer">
 <p id="notice"><%= notice %></p>
 <h1>Order Details</h1>
-<table id="customers">
-<tr>
-<td>Order date:</td>
-<td>Ordered By</td>
-<td>Order date:</td>
-</tr>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Order date:</th>
+            <th scope="col">Ordered By</th>
+            <th scope="col">Order status:</th>
+        </tr>
+    <thead class="thead-light">
 <tr>
 <td><%= @order.order_date %></td>
-<td><%= @order.user %></td>
+<td><%= @order.user.email %></td>
 <td><%= @order.status %></td>
 </tr>
-<tr>
-<td><%= link_to 'Edit', edit_order_path(@order), :class =>"button" %></td>
-<td><%= link_to 'Back', orders_path, :class =>"button" %></td>
-</tr>
 </table>
+<br>
 <h2>Order Items</h2>
-<table id="customers">
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Item title</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+        </tr>
 <% @orderitems.each do |orderitem| %>
 <tr>
-<td><%= orderitem.created_at %></td>
 <td><%= orderitem.title %></td>
-<td><%= orderitem.order_id %></td>
+<td><%= orderitem.quantity %></td>
+<td><%= orderitem.price %></td>
 </tr>
 <% end %>
-<tr></tr>
 </table>
+<%= link_to 'Back', orders_path, :class =>"button" %>
 </div>
 <% else %>
 <h1>You did not place this order</h1>
