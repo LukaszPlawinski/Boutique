@@ -42,7 +42,11 @@
               <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class => "nav-link" %>
             </li>
             <li class="nav-item mx-1">
-              <%= link_to 'Edit Profile', edit_user_registration_path, :class => "nav-link" %></li>
+              <%= link_to 'Edit Profile', edit_user_registration_path, :class => "nav-link" %>
+              </li>
+            <li class="nav-item mx-1">
+                <%= link_to "View Orders", orders_path %>
+            </li>
           <% else %>
             <li class="nav-item mx-1">
               <%= link_to 'Register', new_user_registration_path, :class => "nav-link" %>
