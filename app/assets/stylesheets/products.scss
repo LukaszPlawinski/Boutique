@@ -1,9 +1,8 @@
-// Place all the styles related to the Products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
 #itemsContainer {
-width: 100%;
+width: 80%;
 text-align: center;
+margin:0 auto;
 }
 #itemsContainer h1 {
 display: block;
@@ -11,6 +10,10 @@ text-align: center;
 padding: 14px 16px;
 text-decoration: none;
 }
+.welcomIm{
+    width:60%;
+}
+
 .itemhols {
 margin-left: auto;
 margin-right: auto;
@@ -57,11 +60,11 @@ margin: 4px 2px;
 cursor: pointer;
 }
 .button_edit{
-    background: orange;
+    border-color:orange;
 }
 .button_show{
-    background:green;
+    border-color:green;
 }
 .button_destroy{
-    background: red;
+    border-color: red;
 }

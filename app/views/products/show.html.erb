@@ -2,7 +2,7 @@
 <div id="itemsContainer">
 <h1><%= @product.title %></h1>
 <%= image_tag @product.image_url, :class => 'welcomIm' %>
-<h2><%= @product.description %></h1>
+<h4><%= @product.description %></h4>
 <div class="itemhols">
 <p>Price <%= number_to_currency(@product.price, :unit => "€") %>
 <br>
@@ -15,6 +15,7 @@ Size: <%= @product.size %></p>
     <% if current_user.admin? %>
         <%= link_to 'Edit', edit_product_path(@product), :class => "button", :role => "button" %>
     <% end %>
+         <a href="/cart/<%= @product.id %>" class="button">Add To Cart</a>
 <% end %>
 </p>
 </div>
